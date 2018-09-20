@@ -46,10 +46,10 @@ public class ReportRouter extends RouteBuilder {
 				System.out.println(jsonObject);
 				ObjectMapper oMapper = new ObjectMapper();
 				//UserPojo data = (UserPojo) exchange.getIn().getBody();
-				UserPojo staff1 = oMapper.readValue(jsonObject.toString(), UserPojo.class);
+				UserPojo user = oMapper.readValue(jsonObject.toString(), UserPojo.class);
 				
 				@SuppressWarnings("unchecked")
-				Map<String, Object> convertedData = oMapper.convertValue(staff1, Map.class);
+				Map<String, Object> convertedData = oMapper.convertValue(user, Map.class);
 
 				exchange.getIn().setBody(convertedData);
 			}
